@@ -6,16 +6,14 @@
  */
 
 module.exports = {
-
   attributes: {
- 
-    category_name:{
-      type:'string',
-      required:true
+    category: {
+      type: "string",
+      required: true,
+    },
+    books:{
+      collection:'books',
+      via:'category'
     }
-    
-
   },
-
 };
-
