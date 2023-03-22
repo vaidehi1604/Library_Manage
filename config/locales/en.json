@@ -20,8 +20,18 @@
 	"getUser": "Get All Users!!",
 	"notgetUser": "Not Get All Users!!",
 	"notToken": "notToken",
-	"notAdded": "notAdded",
-	"addData": "addData",
-	"notLogout": "notLogout",
-	"userLogout": "userLogout"
+	"notAdded": "Data Not Added!!",
+	"addData": "Data Added successfully",
+	"notLogout": "Logout Failed!!",
+	"userLogout": "Logout successfully",
+	"getData": "data get successfully!!",
+	"notGet": "data not get!!",
+	"notUpdated": "Data Not Updated",
+	"dataUpdated": "Data Updated Successfully!!",
+	"deleteData": "Data deleted successfully!!",
+	"notDeleted": "Data not deleted",
+	"notAdd": "Data Not Added!!",
+	"addDatta": "Data Added Successfully!!",
+	"showbooks": "showbooks",
+	"notshowbooks": "notshowbooks"
 }

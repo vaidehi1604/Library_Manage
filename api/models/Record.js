@@ -1,5 +1,5 @@
 /**
- * Books.js
+ * Record.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -11,11 +11,6 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    bookName: {
-      type:'string',
-      required: true,
-    },
-
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -24,27 +19,15 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    category: {
-      model: 'category',
+    user: {
+      model: "user",
     },
-    author: {
-      model: 'author',
+    books: {
+      model: "books",
     },
-    price: {
-      type: 'string',
-      required: true,
-    },
-    publishYear: {
-      type: 'string',
-      required: true,
-    },
-    issue: {
+    returnBook:{
       type: "boolean",
       defaultsTo: false,
-    },
-    record: {
-      collection: "record",
-      via: "books",
-    },
+    }
   },
 };

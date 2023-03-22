@@ -26,6 +26,10 @@ module.exports= {
     },
     token:{
       type: 'string',
+    },
+    record:{
+      collection:'record',
+      via:'user'
     }
   },
 
