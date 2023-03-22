@@ -27,6 +27,6 @@ module.exports.policies = {
     // "*": true,
   },
   CategoryController:{
-    "addCategory":"userLoggedIn"
+    "addCategory":"isAdmin"
   }
 };
