@@ -20,6 +20,7 @@ author:{
 mobileNo:{
   type:'string',
   regex: /^[[0-9]{10}$/,
+  unique: true
 }
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

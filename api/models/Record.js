@@ -24,6 +24,7 @@ module.exports = {
     },
     books: {
       model: "books",
+      
     },
     returnBook:{
       type: "boolean",
