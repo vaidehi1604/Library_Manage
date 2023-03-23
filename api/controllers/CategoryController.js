@@ -12,7 +12,10 @@ module.exports = {
     try {
       const { category } = req.body;
       //create category
+      const id = await sails.helpers.id();
+     
       const categorys = await Category.create({
+        id,
         category,
       }).fetch();
       //category added response
@@ -23,7 +26,7 @@ module.exports = {
     } catch (error) {
       //category not added response
       return res.status(500).json({
-        error:error,
+        error:error + "err",
         message: sails.__("notStore", lang),
       });
     }
