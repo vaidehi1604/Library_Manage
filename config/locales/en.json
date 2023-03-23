@@ -32,6 +32,7 @@
 	"notDeleted": "Data not deleted",
 	"notAdd": "Data Not Added!!",
 	"addDatta": "Data Added Successfully!!",
-	"showbooks": "showbooks",
-	"notshowbooks": "notshowbooks"
+	"showbooks": "Book data show!!",
+	"notshowbooks": "Book data not show",
+	"datanot":"data not found!!"
 }

@@ -32,13 +32,19 @@ module.exports.routes = {
 
   //Books
   "POST /admin/books": "BooksController.addBooks",
-  "GET /admin/books": "BooksController.getBooks",
+  "GET /admin/book": "BooksController.getBooks",
   "PATCH /admin/books/:id": "BooksController.updateBooks",
   "DELETE /admin/books/:id": "BooksController.deleteBooks",
-  
+  "GET /admin/books": "BooksController.getBookIssue",
+  "GET /book/search": "BooksController.searchAll",
+  "GET /book/category":"BooksController.getByCategory",
+
+
   //Record
   "POST /user/record": "RecordController.addRecord",
-  "Get /user/record/:id": "RecordController.maintainRecord",
+  "PATCH /user/record/:id": "RecordController.maintainRecord",
+  "Get /user/record": "RecordController.getBooks",
 
+// getBooks
   // maintainRecord
 };
