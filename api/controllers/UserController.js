@@ -6,9 +6,9 @@ module.exports = {
   //user signup
   userSignup: async (req, res) => {
     const lang = req.getLocale();
-    const { username, email, password ,token} = req.body;
+    const { username, email, password, token } = req.body;
     //find user
-    const user = await User.find({ email:email});
+    const user = await User.find({ email: email });
 
     //check find or not!!
     if (user) {
@@ -22,14 +22,16 @@ module.exports = {
       try {
         //creating hash password using hashSync
         const hash = bcrypt.hashSync(password, 10);
+        const id = await sails.helpers.id();
         // create user
         const newUser = await User.create({
+          id,
           username,
           email,
           password: hash,
-          token:' '
+          token: " ",
         }).fetch();
-
+        console.log(newUser);
         return res.status(201).json({
           message: sails.__("addData", lang),
           newUser: newUser,
