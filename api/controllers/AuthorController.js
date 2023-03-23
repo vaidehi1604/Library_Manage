@@ -11,8 +11,11 @@ module.exports = {
     try {
       //store data
       const { author, mobileNo } = req.body;
+      //create uuid 
+      const id = await sails.helpers.id();
       //create author data
       const authors = await Author.create({
+        id,
         author,
         mobileNo,
       }).fetch();
@@ -41,7 +44,7 @@ module.exports = {
           author: author,
           mobileNo: mobileNo,
         });
-        console.log(updateAuthor);
+        
         return res.status(200).json({
           message: sails.__("dataUpdated", lang),
           updateAuthor: updateAuthor,
@@ -65,6 +68,7 @@ module.exports = {
       const { id } = req.params;
       const author = await Author.find({ id });
       if (author) {
+        //delete author
         const deleteAuthor = await Author.destroyOne({ id: id });
         console.log(deleteAuthor);
         return res.status(200).json({
@@ -88,7 +92,7 @@ module.exports = {
     try {
         const limit = req.query.limit || 2;
         const skip = req.query.skip || 0;
-        //get category with pagination
+        //get author with pagination
         const getAuthor = await Author.find({ limit: limit, skip: skip });
   
         return res.status(200).json({
