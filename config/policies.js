@@ -8,6 +8,8 @@
  * https://sailsjs.com/docs/concepts/policies
  */
 
+const RecordController = require("../api/controllers/RecordController");
+
 module.exports.policies = {
 
   /***************************************************************************
@@ -27,6 +29,22 @@ module.exports.policies = {
     // "*": true,
   },
   CategoryController:{
-    "addCategory":"isAdmin"
+    "*":"isAdmin"
+  }
+  ,AuthorController:{
+    "*":"isAdmin"
+  },
+  BooksController:{
+    "*":"isAdmin",
+    "getBooks":"userLoggedIn",
+    "getBookIssue":"userLoggedIn",
+    "searchAll":"userLoggedIn",
+    "getByCategory":"userLoggedIn",
+
+  },
+  RecordController:{
+    "*":"userLoggedIn",
+    "maintainRecord":"isAdmin"
+
   }
 };
