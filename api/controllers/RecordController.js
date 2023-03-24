@@ -12,11 +12,9 @@ module.exports = {
     const lang = req.getLocale();
     sails.hooks.i18n.setLocale(lang);
     try {
-      console.log(1);
       const { user, books } = req.body;
-      
-      const id = await sails.helpers.id();
 
+      const id = await sails.helpers.id();
 
       const addRecord = await Record.create({
         id,
@@ -24,23 +22,21 @@ module.exports = {
         books,
       }).fetch();
 
-      console.log(addRecord);
-
+      const book = await Books.findOne({ id: books });
       if (addRecord) {
-        //when user add record issue true
         const updatebook = await Books.updateOne({ id: books }).set({
           issue: true,
         });
-        console.log(updatebook);
-        return res.status(200).json({
+        return res.status(201).json({
           message: sails.__("addData", lang),
           addRecord: addRecord,
         });
+      } else {
+        return res.status(500).json({
+          error: error + "err",
+          message: sails.__("notAdd", lang),
+        });
       }
-      return res.status(201).json({
-        message: sails.__("addData", lang),
-        addRecord: addRecord,
-      });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
@@ -59,16 +55,13 @@ module.exports = {
       const recordUpdate = await Record.updateOne({ id: id }).set({
         returnBook: true,
       });
-      console.log(record.books);
-      console.log(recordUpdate);
+    
       if (recordUpdate) {
         const updatebook = await Books.updateOne({ id: record.books }).set({
           issue: false,
-        })
-        console.log(1);
-        console.log(updatebook);
-        console.log(2);
-      }else{
+        });
+        
+      } else {
         return res.status(500).json({
           message: sails.__("notshowbooks"),
         });

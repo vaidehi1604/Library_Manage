@@ -6,13 +6,14 @@
  */
 
 module.exports = {
+  //add  books
   addBooks: async (req, res) => {
     const lang = req.getLocale();
     try {
       const { bookName, category, author, price, publishYear } = req.body;
-      //create id with book
+      //create id with uuid
       const id = await sails.helpers.id();
-
+      //create book
       const addbook = await Books.create({
         id,
         bookName,
@@ -128,15 +129,13 @@ module.exports = {
   searchAll: async (req, res) => {
     const lang = req.getLocale();
     try {
-      const bookName = req.query.name||"";
-      const auth = req.query.auth||"";
+      const bookName = req.query.name || "";
 
       console.log(bookName);
       const book = await Books.find({
         where: { bookName: { contains: bookName } },
-      }).populate("author",{
-        where: { author: { contains: auth } },
-      });
+      }).populate("author");
+
       if (!book) {
         return res.status(404).json({
           message: sails.__("datanot", lang),
@@ -144,7 +143,27 @@ module.exports = {
       }
       return res.status(200).json({
         message: sails.__("getData", lang),
-        book: book,
+        books: book,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        error: error,
+        message: sails.__("notGet", lang),
+      });
+    }
+  },
+  //get by author
+  getByAuthor: async (req, res) => {
+    const lang = req.getLocale();
+    try {
+      const author = req.query.author || "";
+      const authors = await Author.find({
+        where: { author: { contains: author } },
+      }).populate("books");
+      console.log(authors);
+      return res.status(200).json({
+        message: sails.__("getData", lang),
+        authors: authors,
       });
     } catch (error) {
       return res.status(500).json({

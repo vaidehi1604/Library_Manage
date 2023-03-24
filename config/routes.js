@@ -38,6 +38,7 @@ module.exports.routes = {
   "GET /admin/books": "BooksController.getBookIssue",
   "GET /book/search": "BooksController.searchAll",
   "GET /book/category":"BooksController.getByCategory",
+  "GET /search/author":"BooksController.getByAuthor",
 
 
   //Record

@@ -19,7 +19,7 @@
 	"notaddcomment": "Comment Not Added!!",
 	"getUser": "Get All Users!!",
 	"notgetUser": "Not Get All Users!!",
-	"notToken": "notToken",
+	"notToken": "Token not generated!!",
 	"notAdded": "Data Not Added!!",
 	"addData": "Data Added successfully",
 	"notLogout": "Logout Failed!!",
