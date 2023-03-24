@@ -9,6 +9,7 @@
 
 module.exports = {
   addRecord: async (req, res) => {
+    const userId = req.userData.id;
     const lang = req.getLocale();
     sails.hooks.i18n.setLocale(lang);
     try {
@@ -18,7 +19,7 @@ module.exports = {
 
       const addRecord = await Record.create({
         id,
-        user,
+        user:userId,
         books,
       }).fetch();
 
